@@ -16,11 +16,11 @@
                 token-x    empty-spot empty-spot
                 empty-spot empty-spot empty-spot] (drop-piece empty-board 3 token-x))))
 
-  (describe "(new-board)"
-    (it "returns an empty board."
+  (describe "new-board"
+    (it "is a vector of nine empty spots."
       (should= [empty-spot empty-spot empty-spot
                 empty-spot empty-spot empty-spot
-                empty-spot empty-spot empty-spot] (new-board)))) 
+                empty-spot empty-spot empty-spot] new-board))) 
 )
 
 

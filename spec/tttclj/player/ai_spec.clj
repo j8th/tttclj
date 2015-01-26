@@ -4,5 +4,5 @@
             [tttclj.board :refer :all]))
 
 (describe "(move)"
-  (it "returns an integer between 0 and 8"
-    (should (< 0 (move (new-board)) 8))))
+  (it "returns an integer that fits on the board"
+    (should (< 0 (move new-board) (- size 1)))))
