@@ -14,8 +14,13 @@
     (it "returns a board with the given token at the given spot."
       (should= [empty-spot empty-spot empty-spot
                 token-x    empty-spot empty-spot
-                empty-spot empty-spot empty-spot] (drop-piece empty-board 3 token-x)))))
+                empty-spot empty-spot empty-spot] (drop-piece empty-board 3 token-x))))
 
-
+  (describe "(new-board)"
+    (it "returns an empty board."
+      (should= [empty-spot empty-spot empty-spot
+                empty-spot empty-spot empty-spot
+                empty-spot empty-spot empty-spot] (new-board)))) 
+)
 
 
