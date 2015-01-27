@@ -1,4 +1,7 @@
-(ns tttclj.player.human)
+(ns tttclj.player.human
+  (:require [tttclj.printer :refer [print-board]]))
 
 (defn move [board]
-  3)
+  (print-board board)
+  (print "Please enter your move: ")
+  (read-string (read-line)))
