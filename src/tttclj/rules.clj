@@ -1,5 +1,6 @@
 (ns tttclj.rules
   (:require [tttclj.player.token :refer [token-x token-o]]
+            [tttclj.board :refer [empty-spot]]
             [clojure.set :refer [subset?]]))
 
 (let [winning-combinations [#{0 1 2}
@@ -22,6 +23,9 @@
       o-spots (fn [board] 
                     (set (get-token-indices board token-o)))
 
+      open-spots (fn [board]
+                    (set (get-token-indices board empty-spot)))
+
       contains-winning-combination? (fn [set-of-tokens]
                                       (not (empty? (filter #(subset? % set-of-tokens) winning-combinations))))
       ]
@@ -33,6 +37,16 @@
 
   (defn owins? [board]
     (if (contains-winning-combination? (o-spots board))
+      true
+      false))
+
+  (defn unfinished? [board]
+    (if (and (not (xwins? board)) (not (owins? board)) (not (empty? (open-spots board))))
+      true
+      false))
+
+  (defn draw? [board]
+    (if (and (not (xwins? board)) (not (owins? board)) (not (unfinished? board)))
       true
       false))
 
