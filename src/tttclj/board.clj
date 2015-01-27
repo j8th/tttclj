@@ -1,7 +1,7 @@
 (ns tttclj.board)
 
 (def empty-spot ".")
-(def size 9)
+(def board-size 9)
 (def new-board [empty-spot empty-spot empty-spot
                 empty-spot empty-spot empty-spot
                 empty-spot empty-spot empty-spot])

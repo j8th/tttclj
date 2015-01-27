@@ -5,4 +5,4 @@
 
 (describe "(move)"
   (it "returns an integer that fits on the board"
-    (should (< 0 (move new-board) (- size 1)))))
+    (should (< 0 (move new-board) (- board-size 1)))))
