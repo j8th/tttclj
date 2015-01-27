@@ -10,6 +10,7 @@
                             #{2 5 8}
                             #{0 4 8}
                             #{6 4 2}]
+
       get-token-indices (fn [board, token] 
                      (map first 
                        (filter #(= (second %) token)
@@ -17,10 +18,13 @@
 
       x-spots (fn [board] 
                     (set (get-token-indices board token-x)))
+
+      contains-winning-combination? (fn [set-of-tokens]
+                                      (empty? (filter #(subset? % set-of-tokens) winning-combinations)))
       ]
 
   (defn xwins? [board]
-    (if (empty? (filter #(subset? % (x-spots board)) winning-combinations))
+    (if (contains-winning-combination? (x-spots board))
       false
       true))
 
