@@ -15,3 +15,10 @@
                    token-x    token-o    empty-spot
                    token-x    token-o    empty-spot])
 
+(def board-o-wins [token-o    empty-spot empty-spot
+                   token-o    token-x    token-x
+                   token-o    empty-spot token-x])
+
+(def draw-board [token-x    token-o    token-x
+                 token-x    token-o    token-o
+                 token-o    token-x    token-x])
