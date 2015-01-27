@@ -19,13 +19,21 @@
       x-spots (fn [board] 
                     (set (get-token-indices board token-x)))
 
+      o-spots (fn [board] 
+                    (set (get-token-indices board token-o)))
+
       contains-winning-combination? (fn [set-of-tokens]
-                                      (empty? (filter #(subset? % set-of-tokens) winning-combinations)))
+                                      (not (empty? (filter #(subset? % set-of-tokens) winning-combinations))))
       ]
 
   (defn xwins? [board]
     (if (contains-winning-combination? (x-spots board))
-      false
-      true))
+      true 
+      false))
+
+  (defn owins? [board]
+    (if (contains-winning-combination? (o-spots board))
+      true
+      false))
 
 )
