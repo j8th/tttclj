@@ -1,4 +1,5 @@
-(ns tttclj.player.ai)
+(ns tttclj.player.ai
+  (:require [tttclj.board :refer [board-size]]))
 
 (defn move [board]
-  1)
+  (rand-int board-size))

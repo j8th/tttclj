@@ -5,4 +5,8 @@
 
 (describe "(move)"
   (it "returns an integer that fits on the board"
-    (should (< 0 (move new-board) (- board-size 1)))))
+    (should (< 0 (move new-board) board-size)))
+
+  (it "returns a random integer"
+    (should= (set (range 0 board-size)) (set (take 1000 (repeatedly #(move new-board))))))
+)
