@@ -1,6 +1,7 @@
 (ns tttclj.rules-spec
   (:require [speclj.core :refer :all]
             [tttclj.rules :refer :all]
+            [tttclj.board :refer [new-board]]
             [tttclj.fixtures.test-boards :refer :all]))
 
 (describe "(xwins?)"
@@ -8,7 +9,7 @@
     (should= true (xwins? board-x-wins)))
 
   (it "returns false for an empty board"
-    (should= false (xwins? empty-board)))
+    (should= false (xwins? new-board)))
 
   (it "returns false for a board o has won"
     (should= false (xwins? board-o-wins)))
@@ -25,7 +26,7 @@
     (should= true (owins? board-o-wins)))
 
   (it "returns false for an empty board"
-    (should= false (owins? empty-board)))
+    (should= false (owins? new-board)))
 
   (it "returns false for a board x has won"
     (should= false (owins? board-x-wins)))
@@ -42,7 +43,7 @@
     (should= false (finished? board-x-corners-o-mid)))
 
   (it "returns false for an empty board"
-    (should= false (finished? empty-board)))
+    (should= false (finished? new-board)))
 
   (it "returns true for a draw board"
     (should= true (finished? draw-board)))
@@ -62,7 +63,7 @@
     (should= false (draw? board-x-wins)))
 
   (it "returns false for an empty board"
-    (should= false (draw? empty-board)))
+    (should= false (draw? new-board)))
 
   (it "returns false for a board o has won"
     (should= false (draw? board-o-wins)))
