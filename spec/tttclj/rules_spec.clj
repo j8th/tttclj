@@ -37,21 +37,21 @@
     (should= false (owins? draw-board)))
 )
 
-(describe "(unfinished?)"
-  (it "returns true for an unfinished board"
-    (should= true (unfinished? board-x-corners-o-mid)))
+(describe "(finished?)"
+  (it "returns false for an unfinished board"
+    (should= false (finished? board-x-corners-o-mid)))
 
-  (it "returns true for an empty board"
-    (should= true (unfinished? empty-board)))
+  (it "returns false for an empty board"
+    (should= false (finished? empty-board)))
 
-  (it "returns false for a draw board"
-    (should= false (unfinished? draw-board)))
+  (it "returns true for a draw board"
+    (should= true (finished? draw-board)))
 
-  (it "returns false when x wins"
-    (should= false (unfinished? board-x-wins)))
+  (it "returns true when x wins"
+    (should= true (finished? board-x-wins)))
 
-  (it "returns false for a board o has won"
-    (should= false (unfinished? board-o-wins)))
+  (it "returns true for a board o has won"
+    (should= true (finished? board-o-wins)))
 )
 
 (describe "(draw?)"

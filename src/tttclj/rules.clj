@@ -27,13 +27,13 @@
       true
       false))
 
-  (defn unfinished? [board]
+  (defn finished? [board]
     (if (and (not (xwins? board)) (not (owins? board)) (not (empty? (open-spots board))))
-      true
-      false))
+      false 
+      true))
 
   (defn draw? [board]
-    (if (and (not (xwins? board)) (not (owins? board)) (not (unfinished? board)))
+    (if (and (not (xwins? board)) (not (owins? board)) (finished? board))
       true
       false))
 
