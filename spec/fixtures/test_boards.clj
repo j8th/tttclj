@@ -1,7 +1,6 @@
 (ns tttclj.fixtures.test-boards
-  (:require [tttclj.player.token :refer [token-x token-o]]))
-
-(def empty-spot ".")
+  (:require [tttclj.player.token :refer [token-x token-o]]
+            [tttclj.board :refer [empty-spot]]))
 
 (def empty-board [empty-spot empty-spot empty-spot
                   empty-spot empty-spot empty-spot
