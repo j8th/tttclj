@@ -10,6 +10,10 @@
                             empty-spot token-o    empty-spot
                             empty-spot empty-spot token-x])
 
+(def board-x-43-o-0 [token-o    empty-spot empty-spot
+                     token-x    token-x    empty-spot
+                     empty-spot empty-spot empty-spot])
+
 (def board-x-wins [token-x    empty-spot empty-spot
                    token-x    token-o    empty-spot
                    token-x    token-o    empty-spot])
