@@ -6,13 +6,13 @@
             [tttclj.player.human :as human]))
 
 (describe "(play-game)"
-  (it "returns 1 for a game x wins."
-    (should= 1 (play-game board-x-wins human/move ai/move)))
+  (it "returns the board for a game x wins."
+    (should= board-x-wins (play-game board-x-wins human/move ai/move)))
 
-  (it "returns 0 for a draw game."
-    (should= 0 (play-game draw-board human/move ai/move)))
+  (it "returns the board for a draw game."
+    (should= draw-board (play-game draw-board human/move ai/move)))
 
-  (it "returns -1 for a game o wins."
-    (should= -1 (play-game board-o-wins human/move ai/move)))
+  (it "returns the board for a game o wins."
+    (should= board-o-wins (play-game board-o-wins human/move ai/move)))
 )
 

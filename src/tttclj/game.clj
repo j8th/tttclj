@@ -2,7 +2,5 @@
   (:require [tttclj.rules :refer :all]))
 
 (defn play-game [board player-x player-o]
-  (cond
-    (xwins? board) 1
-    (draw? board) 0
-    (owins? board) -1))
+  (if (or (xwins? board) (owins? board) (draw? board))
+    board))
