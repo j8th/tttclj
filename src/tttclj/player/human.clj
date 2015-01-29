@@ -1,7 +1,11 @@
 (ns tttclj.player.human
-  (:require [tttclj.printer :refer [print-board]]))
+  (:require [tttclj.printer :refer [print-board]]
+            [tttclj.board :refer [open-spots]]))
 
 (defn move [board]
   (print-board board)
   (print "Please enter your move: ")
-  (read-string (read-line)))
+  (let [spot (read-string (read-line))]
+    (if (contains? (open-spots board) spot)
+      spot
+      (move board))))
