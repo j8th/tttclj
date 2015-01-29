@@ -1,5 +1,8 @@
 (ns tttclj.core
-  (:require [tttclj.board :refer [drop-piece new-board]]))
+  (:require [tttclj.board :refer [new-board]]
+            [tttclj.game :refer [play-game]]
+            [tttclj.player.human :as human]))
 
 (defn -main [& args]
-  (print "I will be a TicTacToe game.\n"))
+  (play-game new-board human/move human/move)
+)
