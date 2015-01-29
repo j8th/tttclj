@@ -71,3 +71,17 @@
   (it "returns false for an unfinished board"
     (should= false (draw? board-x-corners-o-mid)))
 )
+
+(describe "(xturn?)"
+  (it "returns true if it is x's turn"
+   (should= true (xturn? board-x-0-o-4)))
+
+  (it "returns false if it is o's turn"
+    (should= false (xturn? board-x-corners-o-mid)))
+
+  (it "returns true for a new board"
+    (should= true (xturn? new-board)))
+
+  (it "returns false for a game that is over"
+    (should= false (xturn? board-o-wins)))
+)

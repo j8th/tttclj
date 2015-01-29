@@ -37,4 +37,10 @@
       true
       false))
 
+  (defn xturn? [board]
+    (if (and (= (count (x-spots board)) (count (o-spots board))) (not (finished? board)))
+      true
+      false)
+    )
+
 )
