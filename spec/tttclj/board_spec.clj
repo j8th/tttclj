@@ -1,5 +1,5 @@
 (ns tttclj.board-spec
-  (:require [speclj.core :refer [describe it should= before-all]]
+  (:require [speclj.core :refer :all]
             [tttclj.board :refer :all]
             [tttclj.player.token :refer [token-x token-o]]
             [tttclj.fixtures.test-boards :refer :all]))
@@ -30,5 +30,28 @@
   (it "returns the indices of the open spots"
     (should= #{1 2 3 5 6 7} (open-spots board-x-corners-o-mid))
     (should= #{1 2 5 6 7 8} (open-spots board-x-43-o-0))))
+
+(describe "(board?)"
+  (it "returns true for a vector of 9 elements where each element is either an x-token, an o-token, or an empty space"
+    (should (board? [empty-spot token-x token-o
+                     empty-spot token-x token-o
+                     empty-spot empty-spot empty-spot])))
+
+  (it "returns false if any elements are not a legal token (x-token, o-token, or empty-spot)"
+    (should= false (board? [empty-spot token-x token-o
+                     empty-spot token-x token-o
+                     empty-spot token-x 8])))
+
+  (it "returns false for a vector of less than 9 elements or more than 9 elements"
+    (should= false (board? [empty-spot token-x token-o
+                            empty-spot token-x token-o
+                            empty-spot token-x]))
+    (should= false (board? [empty-spot token-x token-o
+                            empty-spot token-x token-o
+                            empty-spot token-x empty-spot empty-spot])))
+
+  (it "returns false for nil"
+    (should= false (board? nil)))
+)
 
 

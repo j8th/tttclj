@@ -9,6 +9,7 @@
      ]
 
   (def empty-spot ".")
+  (def legal-tokens #{token-x token-o empty-spot})
   (def board-size 9)
   (def new-board [empty-spot empty-spot empty-spot
                   empty-spot empty-spot empty-spot
@@ -26,4 +27,8 @@
   (defn open-spots [board]
     (set (get-token-indices board empty-spot)))
 
+  (defn board? [thing]
+    (if (and (vector? thing) (= board-size (count thing)) (= legal-tokens (into #{} thing)))
+      true
+      false))
 )
