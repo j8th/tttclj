@@ -52,6 +52,9 @@
 
   (it "returns false for nil"
     (should= false (board? nil)))
+
+  (it "returns true for a draw-board"
+    (should= true (board? draw-board)))
 )
 
 

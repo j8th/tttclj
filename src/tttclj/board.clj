@@ -1,5 +1,6 @@
 (ns tttclj.board
-  (:require [tttclj.player.token :refer [token-x token-o]]))
+  (:require [tttclj.player.token :refer [token-x token-o]]
+            [clojure.set :refer [subset?]]))
 
 (let [
       get-token-indices (fn [board, token] 
@@ -28,7 +29,7 @@
     (set (get-token-indices board empty-spot)))
 
   (defn board? [thing]
-    (if (and (vector? thing) (= board-size (count thing)) (= legal-tokens (into #{} thing)))
+    (if (and (vector? thing) (= board-size (count thing)) (subset? (into #{} thing) legal-tokens))
       true
       false))
 )
