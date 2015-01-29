@@ -10,12 +10,12 @@
                   "-----------\n"
                   " 3 | 4 | 5 \n"
                   "-----------\n"
-                  " 6 | 7 | 8 \n") (with-out-str (print-board new-board))))
+                  " 6 | 7 | 8 \n\n") (with-out-str (print-board new-board))))
 
   (it "prints a non-empty board"
     (should= (str " X | 1 | 2 \n"
                   "-----------\n"
                   " 3 | O | 5 \n"
                   "-----------\n"
-                  " 6 | 7 | X \n") (with-out-str (print-board board-x-corners-o-mid))))
+                  " 6 | 7 | X \n\n") (with-out-str (print-board board-x-corners-o-mid))))
 )

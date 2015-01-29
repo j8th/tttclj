@@ -6,7 +6,7 @@
 
   (defn print-board [board]
     (let [spots (replace-empty-spots-with-index-number board)]
-      (print (apply format (str " %s | %s | %s \n"
+      (println (apply format (str " %s | %s | %s \n"
                                 "-----------\n"
                                 " %s | %s | %s \n"
                                 "-----------\n"
