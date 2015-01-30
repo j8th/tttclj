@@ -19,3 +19,10 @@
                   "-----------\n"
                   " 6 | 7 | X \n\n") (with-out-str (print-board board-x-corners-o-mid))))
 )
+
+(describe "(print-winner)"
+  (it "prints the winner of the board"
+    (should= "Player X Wins!\n" (with-out-str (print-winner board-x-wins)))
+    (should= "Player O Wins!\n" (with-out-str (print-winner board-o-wins)))
+    (should= "Draw Game.\n" (with-out-str (print-winner draw-board)))
+  ))

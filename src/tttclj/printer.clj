@@ -1,5 +1,6 @@
 (ns tttclj.printer
-  (:require [tttclj.board :refer [empty-spot]]))
+  (:require [tttclj.board :refer [empty-spot]]
+            [tttclj.rules :refer [xwins? owins? draw?]]))
 
 (let [replace-empty-spots-with-index-number (fn [board] 
         (map-indexed (fn [index, spot] (if (= spot empty-spot) index spot)) board))]
@@ -12,4 +13,9 @@
                                 "-----------\n"
                                 " %s | %s | %s \n") spots))))
 
+  (defn print-winner [board]
+    (cond
+      (xwins? board) (println "Player X Wins!")
+      (owins? board) (println "Player O Wins!")
+      (draw? board) (println "Draw Game.")))
 )
