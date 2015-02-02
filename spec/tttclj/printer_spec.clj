@@ -18,6 +18,14 @@
                   " 3 | O | 5 \n"
                   "-----------\n"
                   " 6 | 7 | X \n\n") (with-out-str (print-board board-x-corners-o-mid))))
+
+  (it "prints a non-empty board"
+    (should= (str " X | 1 | X \n"
+                  "-----------\n"
+                  " 3 | X | O \n"
+                  "-----------\n"
+                  " 6 | 7 | O \n\n") (with-out-str (print-board (test-board '(0 2 4) '(5 8))))))
+
 )
 
 (describe "(print-winner)"
