@@ -14,6 +14,7 @@
                                 " %s | %s | %s \n") spots))))
 
   (defn print-winner [board]
+    (print-board board)
     (cond
       (xwins? board) (println "Player X Wins!")
       (owins? board) (println "Player O Wins!")
