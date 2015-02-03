@@ -16,4 +16,7 @@
 
   (it "prompts until the user enters a valid choice"
     (should= "X" (with-in-str "MY\nTEST\nHI\nX\nNO\n" (prompt "blah" #{"X" "O"}))))
+
+  (it "works with a vector of choices"
+    (should= "O" (with-in-str "O\n" (prompt "blah" ["X" "O"]))))
   )
