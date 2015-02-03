@@ -36,3 +36,17 @@
   (it "returns [ai/(move) human/(move)] when the player chooses to be O"
     (should= [ai/move human/move] (with-in-str "O" (set-players))))
 )
+
+(describe "(play-again?)"
+  (around [it]
+    (with-out-str (it)))
+
+  (it "asks the player if he or she would like to play again"
+    (should-contain "Play again? (y/n)" (with-out-str (with-in-str "y" (play-again?)))))
+
+  (it "returns true if the player enters \"y\""
+    (should= true (with-in-str "y" (play-again?))))
+
+  (it "returns false if the player chooses no (n)"
+    (should= false (with-in-str "n" (play-again?))))
+)

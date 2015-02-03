@@ -14,3 +14,6 @@
     (if (= choice "X")
       [human/move ai/move]
       [ai/move human/move])))
+
+(defn play-again? []
+  (= (prompt "Play again? (y/n)" ["y" "n"]) "y"))

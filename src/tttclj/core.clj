@@ -1,7 +1,7 @@
 (ns tttclj.core
   (:require [tttclj.app :refer [app]]
-            [tttclj.prompt :refer [prompt set-players]]))
+            [tttclj.prompt :refer [set-players play-again?]]))
 
 (defn -main [& args]
-  (app (set-players) #(= (prompt "Play again? (y/n)" ["y" "n"]) "y"))
+  (app (set-players) play-again?)
 )
