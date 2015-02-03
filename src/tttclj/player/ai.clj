@@ -8,7 +8,7 @@
 (defn move [board]
   (cond
     (= new-board board) 4
-    (= (count (open-spots board)) 8) (first (intersection #{0 4} (open-spots board)))
+    (= (count (open-spots board)) 8) (apply max (intersection #{0 4} (open-spots board)))
     :else 
     (let [
           open-spots (open-spots board)
