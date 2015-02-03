@@ -8,5 +8,5 @@
             [tttclj.app :refer [app]]))
 
 (defn -main [& args]
-  (app human/move ai/move #(= (prompt "Play again? (y/n)" ["y" "n"]) "y"))
+  (app [human/move ai/move] #(= (prompt "Play again? (y/n)" ["y" "n"]) "y"))
 )

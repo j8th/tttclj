@@ -3,8 +3,8 @@
             [tttclj.board :refer [new-board]]
             [tttclj.printer :refer [print-winner]]))
 
-(defn app [player-x player-o play-again-fn]
-  (print-winner (play-game new-board player-x player-o))
+(defn app [players play-again-fn]
+  (print-winner (play-game new-board (first players) (second players)))
   (if (play-again-fn)
-    (+ 1 (app player-x player-o play-again-fn))
+    (+ 1 (app players play-again-fn))
     1))
