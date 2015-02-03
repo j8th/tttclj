@@ -8,9 +8,9 @@
   (it "returns an integer that fits on the board"
     (should (< -1 (move new-board) board-size)))
 
-  (it "returns a random integer"
-    (should= (set (range 0 board-size)) (set (take 1000 (repeatedly #(move new-board))))))
+  (it "takes a winning move"
+    (should= 5 (move (test-board '(0 3 4) '(1 6 7)))))
 
-  (it "returns an integer for an open spot on the board"
-    (should= #{1 2 3 5 6 7} (set (take 1000 (repeatedly #(move board-x-corners-o-mid))))))
+  (it "chooses a blocking move"
+    (should= 5 (move (test-board '(3 4) '(0)))))
 )
