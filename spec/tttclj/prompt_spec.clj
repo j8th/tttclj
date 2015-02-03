@@ -1,6 +1,8 @@
 (ns tttclj.prompt-spec
   (:require [speclj.core :refer :all]
-            [tttclj.prompt :refer :all]))
+            [tttclj.prompt :refer :all]
+            [tttclj.player.human :as human]
+            [tttclj.player.ai :as ai]))
 
 
 
@@ -19,4 +21,18 @@
 
   (it "works with a vector of choices"
     (should= "O" (with-in-str "O\n" (prompt "blah" ["X" "O"]))))
-  )
+)
+
+(describe "(set-players)"
+  (around [it]
+    (with-out-str (it)))
+
+  (it "asks the player to choose between X or O"
+    (should-contain "Will you be X or O?" (with-out-str (with-in-str "X" (set-players)))))
+
+  (it "returns [human/(move) ai/(move)] when the player chooses to be X"
+    (should= [human/move ai/move] (with-in-str "X" (set-players))))
+
+  (it "returns [ai/(move) human/(move)] when the player chooses to be O"
+    (should= [ai/move human/move] (with-in-str "O" (set-players))))
+)
