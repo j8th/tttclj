@@ -6,21 +6,24 @@
 
 (describe "(print-board)"
   (it "prints an empty board"
-    (should= (str " 0 | 1 | 2 \n"
+    (should= (str "\n"
+                  " 0 | 1 | 2 \n"
                   "-----------\n"
                   " 3 | 4 | 5 \n"
                   "-----------\n"
                   " 6 | 7 | 8 \n\n") (with-out-str (print-board new-board))))
 
   (it "prints a non-empty board"
-    (should= (str " X | 1 | 2 \n"
+    (should= (str "\n"
+                  " X | 1 | 2 \n"
                   "-----------\n"
                   " 3 | O | 5 \n"
                   "-----------\n"
                   " 6 | 7 | X \n\n") (with-out-str (print-board board-x-corners-o-mid))))
 
   (it "prints a non-empty board"
-    (should= (str " X | 1 | X \n"
+    (should= (str "\n"
+                  " X | 1 | X \n"
                   "-----------\n"
                   " 3 | X | O \n"
                   "-----------\n"
